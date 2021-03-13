@@ -3,6 +3,8 @@ import 'package:web_mobile/pages/contact.dart';
 import 'package:web_mobile/pages/service.dart';
 import 'package:web_mobile/widgets/contact.dart';
 import 'package:web_mobile/widgets/experiences.dart';
+import 'package:web_mobile/widgets/listview.dart';
+import 'package:web_mobile/widgets/sidebarmenue.dart';
 
 import 'helper/const.dart';
 
@@ -20,9 +22,6 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: appTitle),
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        //'/': (context) => MyContact(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
         '/contact': (context) => MyContact(),
         '/service': (context) => Service(),
       },
@@ -51,89 +50,15 @@ class MyHomePage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: <Widget>[
-              ContactWidget(),
-              ExperienceWidget()
+             // ContactWidget(),
+             // ExperienceWidget()
+              ListCard()
 
             ],
           ),
         ),
       ),
-      drawer: Drawer(
-
-        child: ListView(
-
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child:
-              Center(
-                child: CircleAvatar(
-                  backgroundColor: Colors.amber,
-                  radius: 60,
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage("assets/pp.jpg"),
-                    radius: 55,
-
-                  ),
-                ),
-              ),
-              decoration: BoxDecoration(
-                  color: Colors.blue,
-                  image: DecorationImage(
-                      image: AssetImage("assets/pic01.jpg"),
-                      fit: BoxFit.cover)
-              ),
-
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Service'),
-              onTap: () {
-                Navigator.pushNamed(context, '/service');
-              },
-            ),
-
-            ListTile(
-              title: Text('Experiences'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-            ListTile(
-              title: Text('Skills'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-            ListTile(
-              title: Text('Projects'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-            ListTile(
-              title: Text('Awards and Certificates'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-            ListTile(
-              title: Text('Contact'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: SideBarWidget(),
     );
   }
 }
