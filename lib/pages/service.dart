@@ -10,8 +10,30 @@ class _ServiceState extends State<Service> {
   int count=0;
   Color gradientStart = Colors.grey[900]; //Change start gradient color here
   Color gradientEnd = Colors.grey[600]; //Change end gradient color here
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print('Hello from initState');
+    getData();
+  }
+
+
+  // Async & Sync concept
+  void getData() async{
+    //Api -1 3 sec
+   await Future.delayed(Duration(seconds: 3),(){
+      print('api--1');
+    });
+    //Api -2 2 sec
+   await Future.delayed(Duration(seconds: 2),(){
+      print('api--2');
+    });
+    print('end of function');
+  }
   @override
   Widget build(BuildContext context) {
+    print('Hello from build');
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
