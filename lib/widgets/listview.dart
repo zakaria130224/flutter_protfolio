@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:web_mobile/models/book.dart';
 
 class ListCard extends StatefulWidget {
   @override
@@ -7,7 +8,11 @@ class ListCard extends StatefulWidget {
 }
 
 class _ListCardState extends State<ListCard> {
-
+List<Book> _books=[
+  new Book("Himu", "Humayun Ahmed", "487187845"),
+  new Book("Himu", "Humayun Ahmed", "487187845"),
+  new Book("Himu", "Humayun Ahmed", "487187845")
+];
   List<String> _list=[
     'Zakaria Ahammed',
     'Naznin Jeba',
@@ -17,11 +22,12 @@ class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: _list.map((item)  {
+      children: _books.map((item)  {
         return Center(
           child: ListTile(
              leading: Icon(Icons.star),
-            title: Text(item),
+            title: Text(item.Name),
+            subtitle: Text(item.Author),
             tileColor: Color(1),
 
           ),
